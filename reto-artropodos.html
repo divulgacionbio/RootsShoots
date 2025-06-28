@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto Artrópodos RS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green-dark': '#084A3A',
+                        'primary-green-medium': '#94BB60',
+                        'primary-brown-earthy': '#7F533F',
+                        'secondary-green-light': '#4C704A',
+                        'secondary-green-soft': '#CCE4D3',
+                        'secondary-yellow-light': '#EBFDC4',
+                        'secondary-brown-light': '#78633B',
+                        'secondary-orange': '#D6865C',
+                        'secondary-cream': '#F1DAC1',
+                        'neutral-white': '#FFFFFF',
+                        'neutral-black': '#000000',
+                        'neutral-light-gray': '#F5F5F5',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        spartan: ['Spartan', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-section {
+            background-image: url('images/background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Overlay */
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            z-index: 0;
+        }
+        .title-with-bg {
+            background-color: rgba(0, 0, 0, 0.4); /* Tailwind no tiene una utilidad directa para esto con blur */
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+        .card-info ul li::before {
+            content: '•';
+            color: var(--primary-green-medium); /* Usar variable CSS porque Tailwind no tiene utilidad para pseudo-elementos de lista */
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+        .contact-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23FFFFFF" fill-opacity="0.1" d="M0,160L48,176C96,192,192,224,288,208C384,192,480,128,576,128C672,128,768,192,864,192C960,192,1056,128,1152,106.7C1248,85,1344,107,1392,117.3L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>');
+            background-size: cover;
+            background-position: top center;
+            opacity: 0.5;
+            z-index: 0;
+            transform: translateY(-15%);
+        }
+
+        /* NUEVA REGLA PARA SOMBRA DE TEXTO */
+        .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* CORRECCIÓN PARA LAS CAJAS DE LA SECCIÓN 2 */
+        .grid-2-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            /* Eliminado align-items: flex-start; para que las cajas se estiren a la misma altura */
+        }
+        /* MEDIA QUERY para responsividad */
+        @media (max-width: 900px) {
+            .grid-2-columns, .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* UNIFICACIÓN DE TAMAÑO PARA TEXTO FUERTE (strong) */
+        strong {
+            font-size: 1em; /* Asegura que herede el tamaño del padre */
+            color: var(--primary-brown-earthy); /* Asegura el color marrón */
+        }
+
+    </style>
+</head>
+<body class="font-spartan text-gray-800 bg-neutral-light-gray">
+
+    <header class="hero-section">
+        <div class="hero-content relative z-10 flex flex-col items-center text-center max-w-4xl w-full">
+            <h1 class="title-with-bg text-5xl font-poppins font-bold text-white p-4 md:p-6 rounded-lg shadow-lg mb-5 text-shadow-md">Reto Roots & Shoots:<br> "Guardianes diminutos, impactos gigantes"</h1>
+            <p class="text-2xl text-white mb-8 text-shadow-custom">Pequeños seres con grandes historias por descubrir</p>
+            <a href="instrucciones-reto.html" class="btn bg-primary-green-medium text-neutral-white hover:bg-secondary-orange px-8 py-3 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1">INSTRUCCIONES DEL RETO</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome-section py-16 bg-neutral-white text-center">
+            <div class="container mx-auto px-8">
+                <h2 class="text-4xl font-poppins font-bold text-primary-green-dark mb-8">Conoce a los protagonistas de este desafío</h2>
+                <p class="text-lg leading-relaxed max-w-full mx-auto mb-4">Los artrópodos constituyen el filo más diverso y numeroso del reino animal, representando más del 80% de todas las especies conocidas en la Tierra. Desde las profundidades marinas hasta las cumbres montañosas, estos fascinantes organismos han conquistado prácticamente todos los ecosistemas del planeta.</p>
+                <p class="text-lg leading-relaxed max-w-full mx-auto">Con más de un millón de especies descritas y muchas más por descubrir, los artrópodosengloban animales tan diversos entre sí como insectos, arácnidos, crustáceos y miriápodos Su éxito evolutivo se debe a características como su amplia adaptabilidad y a su exoesqueleto articulado, que les proporciona protección y versatilidad de movimiento.</p>
+
+                <div class="flex justify-center my-8">
+                    <img src="images/piechart.png" alt="Diagrama: One Empathy" class="max-w-full h-auto md:max-w-xl rounded-lg shadow-md">
+                </div>
+            </div> </section> <section class="features-groups-section py-16 bg-neutral-light-gray">
+            <div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8"> <div class="card-info bg-secondary-green-soft rounded-2xl p-8 shadow-md text-left">
+                    <h3 class="text-2xl font-poppins font-bold text-primary-green-dark mb-4">Características principales</h3>
+                    <ul class="list-none p-0 m-0">
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Apéndices articulados</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Cuerpo segmentado</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Exoesqueleto de quitina</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Sistema nervioso ventral</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Mudan exoesqueleto para crecer</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Sentidos altamente especializados y amplia capacidad de adaptación</li>
+                    </ul>
+                </div>
+                <div class="card-info bg-secondary-green-soft rounded-2xl p-8 shadow-md text-left">
+                    <h3 class="text-2xl font-poppins font-bold text-primary-green-dark mb-4">Grupos principales (Clases)</h3>
+                    <ul class="list-none p-0 m-0">
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Insectos (Ej. abejas, mariposas, escarabajos, libélulas)</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Arácnidos (Ej.arañas, escorpiones, opiliones, ácaros)</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Crustáceos (Ej.cangrejos, langostas, cochinillas, krill)</li>
+                        <li class="mb-2 pl-6 relative text-lg text-primary-brown-earthy">Miriápodos (Ej.ciempiés, milpiés)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+       <section class="fascinating-arthropods-section py-20 bg-neutral-white text-center" id="exploracion">
+            <div class="container mx-auto px-8">
+                <h2 class="text-4xl font-poppins font-bold text-primary-green-dark mb-10">Algunos artrópodos fascinantes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/mariposa.png" alt="Mariposa monarca" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Mariposa monarca</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Famosa por su increíble migración anual de hasta 4,000 km. Sus colores brillantes advierten a los depredadores sobre su toxicidad, adquirida al alimentarse de algodoncillo.</p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/escorpion.png" alt="Escorpión" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Escorpión</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Depredadores nocturnos con un aguijón venenoso en la cola. Algunos pueden brillar bajo luz ultravioleta debido a proteínas en su exoesqueleto. Existen desde hace millones de años.</p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/mantis.png" alt="Mantis Religiosa" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Mantis religiosa</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Depredadora con patas delanteras especializadas para capturar presas. Puede girar su cabeza 180 grados y tiene una visión extraordinaria. La hembra a menudo devora al macho después del apareamiento.</p>
+                    </div>
+
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/arriera.png" alt="Hormiga arriera" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Hormiga arriera</h3>
+                        <p class="text-base leading-relaxed text-gray-700">No come las hojas que corta, ¡las usa para cultivar un hongo subterráneo que es su único alimento! Practican una forma de agricultura desde hace millones de años, creando civilizaciones complejas bajo tierra.</p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/hercules.png" alt="Escarabajo hércules" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Escarabajo hércules</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Es uno de los insectos más grandes del mundo. A pesar de su tamaño, su fuerza es lo más impresionante: el macho puede levantar hasta 850 veces su propio peso, siendo uno de los animales más fuertes del planeta.</p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+
+                        <img src="images/jumping.png" alt="Artrópodo Fascinante 6" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Araña saltarina</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Posee una visión excepcional, con ocho ojos que le permiten ver en casi 360° y a color. En lugar de tejer redes para cazar, acecha y salta sobre su presa con una precisión increíble, realizando complejos rituales de cortejo.</p>
+                    </div>
+
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/machaca.png" alt="Artrópodo Fascinante 7" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Chicharra caimán</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Famosa por su cabeza con forma de cacahuete o cabeza de caimán. Aunque su apariencia es intimidante y está rodeado de mitos (como el de una picadura mortal, que es falso), es un inofensivo chupador de savia. </p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/caballito.png" alt="Artrópodo Fascinante 8" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Caballito del diablo</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Es un depredador aéreo casi perfecto, con una tasa de éxito de captura superior al 95%. Sus dos pares de alas pueden moverse de forma independiente, permitiéndole volar hacia atrás, flotar en el aire y cambiar de dirección al instante.</p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/amblipigio.png" alt="Artrópodo Fascinante 9" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Amblipigio</h3>
+                        <p class="text-base leading-relaxed text-gray-700">De apariencia temible, parece una mezcla de araña y escorpión, pero es totalmente inofensivo para los humanos, ya que no posee veneno. Usa su primer par de patas, extremadamente largas y delgadas, como antenas para explorar su entorno en la oscuridad.</p>
+                    </div>
+
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/cochinilla.png" alt="Artrópodo Fascinante 10" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Cochinilla de humedad</h3>
+                        <p class="text-base leading-relaxed text-gray-700">Aunque vive en tierra, no es un insecto, sino un crustáceo, ¡más pariente de los cangrejos y camarones! Respira a través de estructuras similares a branquias, por lo que necesita ambientes húmedos para sobrevivir. </p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/escolopendra.png" alt="Artrópodo Fascinante 11" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Escolopendra gigante</h3>
+                        <p class="text-base leading-relaxed text-gray-700">A pesar de su reputación como un depredador temible, la hembra es una madre dedicada. Se enrosca alrededor de sus huevos para protegerlos de depredadores y hongos, limpiándolos constantemente hasta que eclosionan.</p>
+                    </div>
+                    <div class="card-arthropod bg-secondary-cream rounded-2xl p-6 shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl cursor-pointer">
+                        <img src="images/abeja-orquideas.png" alt="Artrópodo Fascinante 12" class="w-40 h-40 object-cover mb-5 rounded-full p-1 bg-gray-50">
+                        <h3 class="text-2xl font-poppins font-bold text-primary-brown-earthy mb-2">Abeja de las orquídeas</h3>
+                        <p class="text-base leading-relaxed text-gray-700"> Los machos de estas abejas de colores metálicos brillantes son "perfumistas". Pasan su vida recolectando fragancias de orquídeas y otras flores para crear una mezcla única y compleja que usarán para atraer a las hembras. </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-neutral-light-gray">
+            <div class="container mx-auto px-8">
+                <h2 class="text-4xl font-poppins font-bold text-primary-green-dark mb-8 text-center">Título de la Nueva Sección</h2>
+                <p class="text-lg leading-relaxed max-w-3xl mx-auto text-center">
+                    ¡Aquí es donde irá el nuevo contenido! Puedes empezar a añadir texto, imágenes o cualquier otro elemento que desees para esta sección.
+                </p>
+                </div>
+        </section>
+
+        <section class="contact-section bg-primary-green-dark text-neutral-white py-4"> <div class="container mx-auto px-8 relative z-10 flex flex-col justify-center items-center text-center gap-8 pt-8 pb-8">
+                <div class="flex flex-col md:flex-row md:justify-center md:items-start gap-8 md:gap-16 max-w-2xl w-full">
+                    <div class="flex flex-col items-center gap-4 text-center">
+                        <h3 class="text-2xl font-poppins font-bold text-neutral-white mb-2">Comunicación</h3>
+                        <a href="https://wa.me/XXXXXXXXXX" target="_blank" class="btn bg-secondary-green-light text-neutral-white hover:bg-primary-green-medium px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1 block max-w-xs md:max-w-none w-full">Envía tus archivos</a>
+                    </div>
+                    
+                    <div class="flex flex-col items-center gap-4 text-center">
+                        <h3 class="text-2xl font-poppins font-bold text-neutral-white mb-2">Recursos adicionales</h3>
+                        <a href="#" class="btn bg-secondary-orange text-neutral-white hover:bg-primary-brown-earthy px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1 block max-w-xs md:max-w-none w-full">Acceder a carpeta de recursos</a>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center mt-8 text-sm">
+                    <img src="images/logo-white.png" alt="Logo Roots & Shoots Colombia" class="h-20 mb-4">
+                    <p>&copy; 2025 Reto "Guardianes diminutos, impactos gigantes"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

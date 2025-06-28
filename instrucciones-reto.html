@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto Roots & Shoots: "Guardianes diminutos, impactos gigantes"</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colores Primarios */
+            --color-primario-verde-oscuro: #084A3A;
+            --color-primario-verde-medio: #94BB60;
+            --color-primario-marron-terroso: #7F533F;
+
+            /* Colores Secundarios/Acento */
+            --color-secundario-verde-claro: #4C704A;
+            --color-secundario-verde-suave: #CCE4D3;
+            --color-secundario-amarillo-claro: #EBFDC4;
+            --color-secundario-marron-claro: #78633B;
+            --color-secundario-naranja: #D6865C;
+            --color-secundario-crema: #F1DAC1;
+
+            /* Colores Neutros */
+            --color-blanco: #FFFFFF;
+            --color-negro: #000000;
+            --color-gris-claro: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Spartan', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0; /* LIMPIEZA: Eliminado padding del body para mejor control con .container */
+            background-color: var(--color-gris-claro);
+            color: #1f2937; /* Color unificado con index.html */
+            font-size: 16px; /* Define un tamaño base claro para todo el body */
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            /* LIMPIEZA: Eliminado comentario de font-size: 1em; es redundante ya que hereda del body */
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto 20px auto; /* CORRECCIÓN: Ajustado margin-top para el botón, y centrado */
+            background-color: var(--color-blanco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--color-primario-verde-oscuro);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--color-primario-verde-oscuro);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--color-primario-verde-medio);
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            margin-top: 25px;
+            color: var(--color-secundario-verde-claro);
+        }
+
+        h4 {
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: var(--color-primario-marron-terroso);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        strong {
+            color: var(--color-primario-marron-terroso);
+            font-size: 1.05em;
+        }
+
+        .highlight {
+            background-color: var(--color-secundario-amarillo-claro);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .call-to-action {
+            background-color: var(--color-primario-verde-medio);
+            color: var(--color-negro);
+            padding: 15px 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .note {
+            background-color: var(--color-secundario-verde-suave);
+            border-left: 5px solid var(--color-primario-verde-oscuro);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 0.95em; /* Se mantiene este tamaño para la nota completa como estilo */
+        }
+
+        .week-section {
+            background-color: var(--color-secundario-verde-suave);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid var(--color-primario-verde-medio);
+        }
+
+        .week-section h3 {
+            color: var(--color-primario-verde-oscuro);
+            margin-top: 0;
+            border-bottom: 1px dashed var(--color-primario-marron-terroso);
+            padding-bottom: 5px;
+        }
+
+        .week-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .week-section ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .week-section ul li:before {
+            content: '🌿'; /* Simple icon for list items */
+            position: absolute;
+            left: 0;
+            color: var(--color-primario-verde-oscuro);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-secundario-verde-suave);
+        }
+
+        .footer-logo {
+            max-width: 300px; /* Ajusta este valor según el tamaño deseado para tu logo */
+            height: auto; /* Mantiene la proporción de la imagen */
+            margin-bottom: 10px; /* Espacio entre el logo y el texto del copyright */
+            display: block; /* Asegura que la imagen sea un bloque para que 'margin: auto' funcione */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- ESTILOS PARA EL BOTÓN DE REGRESO --- */
+        .back-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; /* Ajuste para separar del borde superior de la ventana */
+            margin-bottom: 30px; /* Ajuste para separar del contenedor principal */
+        }
+
+        .btn-return {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            
+            /* Colores del kit de marca */
+            background-color: var(--color-primario-verde-medio);
+            color: var(--color-blanco);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-return:hover {
+            background-color: var(--color-secundario-naranja);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        /* --- FIN ESTILOS PARA EL BOTÓN DE REGRESO --- */
+    </style>
+</head>
+<body>
+
+    <div class="back-button-container">
+        <a href="artropodos-rs.html" class="btn-return">
+            Regresa a la página principal
+        </a>
+    </div>
+
+    <div class="container">
+        <h1><em>Tu misión comienza después de leer<br>esta hoja de ruta</em></h1>
+        
+        <div class="section">
+            <h2>¡Bienvenida! ¡Bienvenido!</h2>
+            <p>¿Alguna vez te has preguntado quiénes son los verdaderos héroes detrás de escena en la naturaleza? Aquellos que polinizan nuestras plantas, controlan otras poblaciones (mal llamadas plagas) sin químicos y reciclan incansablemente los nutrientes de la tierra. Estos guardianes diminutos están por todas partes, esperando que los descubras.</p>
+            <p>
+                Te invitamos a un desafío fascinante: el Reto Roots & Shoots: '<strong>Guardianes diminutos, impactos gigantes</strong>', inspirándonos en la pasión por la observación de la Dra. Jane, te proponemos abrir los ojos a un mundo biodiverso que a menudo pasamos por alto. Este no es solo un reto; es una oportunidad para que tú, agente de cambio de nuestra red global, demuestres que <strong>cada individuo importa y marca la diferencia</strong>, incluso cuando se trata de las criaturas más pequeñas.
+            </p>
+            <p>
+                ¡Prepárate para transformar tu miedo en fascinación, tu desconocimiento en conocimiento, y tu patio trasero, tu jardín o el parque más cercano en un laboratorio vivo! Transformemos el mundo a través de la curiosidad. ¿Aceptas el desafío?"
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>¿Por qué un Reto de Artrópodos? 🐞🦋🐛🐝🐜🪰🪲🪳🦟🦗🕷🦂
+</h2>
+            <p>Nos encanta tenerte a bordo de esta emocionante expedición. En Roots & Shoots, creemos que tú tienes el poder de generar un cambio positivo en el mundo para el ambiente, los animales y la comunidad humana. Sabemos que el verdadero cambio comienza con la comprensión y la compasión por todos los seres vivos. Este reto es una gran oportunidad para descubrir una parte de ese universo de vida increíblemente importante y a menudo subestimado. Te guiaremos en cada observación y acción.</p>
+            <p>
+                Estamos aquí para apoyarte en cada descubrimiento. ¡Juntos, demostraremos que hasta los seres más pequeños pueden inspirar los impactos más grandes!
+            </p>
+            <p>Este reto es una oportunidad maravillosa para: </p>
+            <ul>
+                <li><strong>Desmitificar y apreciar:</strong> Transformar el miedo en fascinación y el desconocimiento en conocimiento práctico sobre estos "pequeños héroes" que sostienen nuestros ecosistemas. </li>
+                <li><strong>Impulsar la acción directa y medible:</strong> A través de una estructura de reto, los participantes se sentirán motivados a observar, documentar y compartir sus descubrimientos en un tiempo definido, generando un impacto tangible y visible en sus comunidades. </li>
+                <li><strong>Fortalecer la red a nivel Latam:</strong> Crear una experiencia compartida que fomente la interconexión y el intercambio de ideas entre grupos de diferentes países. </li>
+                <li><strong>Máximo impacto, cero presupuesto:</strong> Utilizando la curiosidad, las herramientas digitales gratuitas y el poder del voluntariado, demostraremos que no son necesarios recursos económicos para llevar a cabo proyectos de ciencia ciudadana realmente aportantes. </li>
+            </ul>
+            <p>Como ves, no es solo una actividad; es una declaración de que, incluso en los más diminutos, reside un impacto gigante, y que los integrantes de nuestros grupos son grandes catalizadores de ese cambio de conciencia respecto a los demás seres vivos. </p>
+        </div>
+
+        <div class="section">
+            <h2>🎯Objetivos del Reto🎯</h2>
+            <ul>
+                <li><strong>Observación y conciencia:</strong> 
+                    <ul>
+                        <li>Estimular la observación activa de artrópodos en entornos cercanos (hogar, jardín, parque) para identificar su diversidad y presencia. </li>
+                        <li>Aumentar la conciencia sobre los roles ecológicos fundamentales de los artrópodos y su interconexión con el bienestar humano y ambiental. </li>
+                    </ul>
+                </li>
+                <li><strong>Empatía y conocimiento básico:</strong> 
+                    <ul>
+                        <li>Desafiar percepciones negativas y fomentar una actitud de respeto y compasión hacia los artrópodos. </li>
+                        <li>Proveer conocimientos básicos y accesibles sobre la identificación de grupos comunes de artrópodos. </li>
+                    </ul>
+                </li>
+                <li><strong>Acción y difusión de impacto:</strong> 
+                    <ul>
+                        <li>Inspirar a los participantes a realizar al menos una acción sencilla y de costo cero en sus comunidades para proteger a los artrópodos (ej. creación de hoteles de insectos, difusión de información, creación de catálogos o fichas). </li>
+                        <li>Generar contenido visual y narrativo (fotos, videos cortos, historias) que documente los descubrimientos y acciones de los grupos para amplificar su impacto en redes sociales y medios de comunicación locales. </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🧩Metodología del Reto🧩</h2>
+            <h3>Lo llevaremos a cabo durante 2 semanas cada una de ellas tendrá una MISIÓN, con actividades diseñadas para ser completadas de forma autodirigida y colaborativa dentro de cada grupo. </h3>
+
+            <div class="week-section">
+                <h3>Semana 1: Misión "Ojos de Lupa" (Observación y descubrimiento) </h3>
+                <h4>Objetivo:</h4>
+                <ul>
+                    <li>Agudizar la observación y familiarizarse con la diversidad de artrópodos. </li>
+                </ul>
+                <h4>Actividades propuestas:</h4>
+                <ul>
+                    <li><strong>Censo exprés de artrópodos:</strong> Cada grupo dedicará al menos 30 minutos a buscar y registrar (sin tocar, solo observar) artrópodos en su entorno (jardín, patio, grietas de paredes, debajo de una piedra). Pueden tomar fotos o hacer dibujos de losindividuos encontrados. </li>
+                    <li><strong>Detective de clases:</strong> Utilizando la infografía proporcionada, intentarán clasificar los artrópodos observados en sus principales grupos (insectos, arácnidos, etc.). </li>
+                    <li><strong>Compartiendo curiosidades:</strong> Cada grupo elegirá su "Artrópodo de la semana" y compartirá una foto/dibujo y una curiosidad aprendida en sus redes sociales con el hashtag del reto. </li>
+                </ul>
+
+                <p class="note">
+                    <strong>Recursos clave:</strong>
+                    <a href="URL_DE_DESCARGA_GUIA_OJOS_LUPA.pdf" download style="color: var(--color-primario-verde-oscuro); text-decoration: underline;">Guía "Ojos de Lupa"</a> y
+                    <a href="URL_DE_DESCARGA_INFOGRAFIA.pdf" download style="color: var(--color-primario-verde-oscuro); text-decoration: underline;">Infografía "Diversidad de Artrópodos"</a>.
+                </p>
+            </div>
+
+
+            <div class="week-section">
+                <h3>Semana 2: Misión "Manos amigas” (Reflexión y acción) </h3>
+                <h4>Objetivo:</h4>
+                <ul>
+                    <li>Tomar una acción concreta en favor de los artrópodos y reflexionar sobre su impacto. </li>
+                </ul>
+                <h4>Actividades propuestas:</h4>
+                <ul>
+                    <li><strong>Mini-hábitat amigable:</strong> Crear un pequeño "hotel de insectos" con materiales reciclados (ramas huecas, piñas, ladrillos viejos) o sembrar una pequeña planta con flores atractivas para polinizadores en una maceta. </li>
+                    <li><strong>Mensajeros del valor:</strong> Diseñar un mensaje corto (un dibujo, una frase, un video de 30 segundos) sobre la importancia de los artrópodos y compartirlo con al menos 3 personas de su comunidad (familiares, amigos, vecinos)y por supuesto, con las coordinaciones y los demás grupos R&S. </li>
+                    <li><strong>Reflexión "Impacto Diminuto":</strong> Utilizando la plantilla provista, cada grupo reflexionará sobre lo que aprendió, el impacto de su acción y cómo cambió su percepción de los artrópodos. </li>
+                </ul>
+                <p class="note">
+                    <strong>Recursos clave:</strong>
+                    <a href="URL_DE_DESCARGA_GUIA_MANOS AMIGAS.pdf" download style="color: var(--color-primario-verde-oscuro); text-decoration: underline;">Guía "Ojos de Lupa"</a> y
+                    <a href="URL_DE_DESCARGA_PLANTILLA REFLEXION.pdf" download style="color: var(--color-primario-verde-oscuro); text-decoration: underline;">Infografía "Diversidad de Artrópodos"</a>.
+                </p>
+            </div>
+
+            <h3>Plataformas de Interacción:</h3>
+            <ul>
+                <li><strong>Grupo de WhatsApp Latam:</strong> Para la comunicación diaria, intercambio de avances con los otros grupos y dudas. </li>
+                <li><strong>Redes sociales (Instagram/Facebook):</strong> Los grupos publicarán sus fotos y videos usando el hashtag oficial <span class="highlight">#RetoRootsGuardianesDiminutos</span> para amplificar la visibilidad del reto y el impacto de R&S a nivel regional y global. </li>
+                <li><strong>Google Drive:</strong> Para compartir los entregables finales (plantillas,fotos/videos) de manera organizada. </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Links de apoyo🔗 </h2
+                    <ul>
+                        <li>https://www.bioenciclopedia.com/artropodos/ </li>
+                        <li>https://www.asturnatura.com/temarios/biologia/crustaceos/caracteristicas-artropodos</li>
+                        <li>https://catalogo.biodiversidad.co/ </li>
+<li>https://mexico.inaturalist.org/</li>
+<li>https://www.argentinat.org/</li>
+                        <li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+
+        <div class="section">
+            <h2>Conclusión</h2>
+            <p>El Reto Roots & Shoots: "Guardianes diminutos, impactos gigantes" es una invitación a la aventura, al descubrimiento y a la acción transformadora.  Permitirá a los integrantes de diferentes grupos de la red Latam la posibilidad de ver con nuevos ojos el mundo que los rodea, reconociendo la grandeza en lo pequeño y el poder en sus propias manos. </p>
+        </div>
+
+        <footer>
+            <img src="images/logo-green.png" alt="Logo Roots & Shoots Colombia" class="footer-logo">
+            <p>
+                © 2025 Reto "Guardianes diminutos, impactos gigantes"
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
