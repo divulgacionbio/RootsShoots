@@ -118,14 +118,56 @@
             color: var(--primary-brown-earthy); /* Asegura el color marrón */
         }
 
+/* Estilos para el elemento de compromiso interactivo */
+.commitment-area {
+    /* Este contenedor maneja el botón y el mensaje revelado */
+}
+
+.commitment-button {
+    /* El botón ya tiene clases de Tailwind que lo estilizan */
+    /* Añadimos estilos para que parezca un botón que se activa */
+    display: inline-flex; /* Asegura que el label se comporte como botón flexible */
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Ancho automático basado en contenido */
+    margin: 0 auto; /* Centrar el botón */
+}
+
+/* El mensaje oculto que se revelará */
+.commitment-message {
+    /* Tailwind ya tiene bg, text, p, rounded, shadow, mt */
+    /* Necesitamos que esté oculto por defecto y se muestre al activar el checkbox */
+    opacity: 0; /* Oculto */
+    max-height: 0; /* Oculto, sin ocupar espacio */
+    overflow: hidden; /* Corta contenido que desborda */
+    transition: opacity 0.5s ease, max-height 0.5s ease; /* Transición suave */
+    /* Asegurar que el mensaje esté centrado ocupe el ancho adecuado */
+    text-align: center;
+}
+
+/* Regla clave: Cuando el checkbox está checked, muestra el mensaje */
+#commitmentToggle:checked + .commitment-button + .commitment-message {
+    opacity: 1; /* Visible */
+    max-height: 200px; /* Suficiente altura para el mensaje (ajusta si es más largo) */
+    padding: 24px; /* Asegura padding cuando está visible */
+}
+
+/* Estilo para los enlaces dentro del mensaje */
+.commitment-message a {
+    color: var(--color-primario-verde-oscuro);
+    text-decoration: underline;
+}
+
     </style>
+
+
 </head>
 <body class="font-spartan text-gray-800 bg-neutral-light-gray">
 
     <header class="hero-section">
         <div class="hero-content relative z-10 flex flex-col items-center text-center max-w-4xl w-full">
             <h1 class="title-with-bg text-5xl font-poppins font-bold text-white p-4 md:p-6 rounded-lg shadow-lg mb-5 text-shadow-md">Reto Roots & Shoots:<br> "Guardianes diminutos, impactos gigantes"</h1>
-            <p class="text-2xl text-white mb-8 text-shadow-custom">Pequeños seres con grandes historias por descubrir</p>
+            <p class="text-2xl text-white mb-8 text-shadow-custom">Pequeños seres con grandes historias que contarte</p>
             <a href="instrucciones-reto.html" class="btn bg-primary-green-medium text-neutral-white hover:bg-secondary-orange px-8 py-3 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1">INSTRUCCIONES DEL RETO</a>
         </div>
     </header>
@@ -237,14 +279,32 @@
             </div>
         </section>
 
-        <section class="py-16 bg-neutral-light-gray">
-            <div class="container mx-auto px-8">
-                <h2 class="text-4xl font-poppins font-bold text-primary-green-dark mb-8 text-center">Título de la Nueva Sección</h2>
-                <p class="text-lg leading-relaxed max-w-3xl mx-auto text-center">
-                    ¡Aquí es donde irá el nuevo contenido! Puedes empezar a añadir texto, imágenes o cualquier otro elemento que desees para esta sección.
-                </p>
-                </div>
-        </section>
+      <section class="py-16 bg-neutral-light-gray text-center">
+    <div class="container mx-auto px-8">
+        <h2 class="text-4xl font-poppins font-bold text-primary-green-dark mb-8">Tu impacto comienza hoy: Conéctate, Aprende y Transforma</h2>
+        <p class="text-lg leading-relaxed max-w-4xl mx-auto mb-6">
+            Este es tu oportunidad de <strong class="text-primary-brown-earthy">seguir siendo parte de soluciones</strong> y compartir tus descubrimientos fascinantes mientras aprendes de las experiencias de compañeros de otros grupos en toda la región.  </p>
+        <p class="text-lg leading-relaxed max-w-4xl mx-auto mb-8">
+            Desde la observación más sencilla en tu patio hasta el nivel de identificación de artrópodos que quieras llegar, cada foto, cada historia, cada pequeña acción que compartas amplificará la conciencia sobre estos aliados esenciales. Demostremos juntos que a los miembros de los grupos Roots & Shoots nos sobran la <strong class="text-primary-brown-earthy">curiosidad, la compasión y un espíritu proactivo</strong>.
+        </p>
+        <p class="text-lg leading-relaxed max-w-4xl mx-auto mb-10">
+            ¿Listo para transformar tu visión del mundo y generar un <strong class="text-primary-brown-earthy">impacto gigante</strong> con acciones diminutas? A través de nuestros canales de interacción, recibirás apoyo, ideas y la inspiración para seguir transformando tu entorno. 
+        </p>
+
+       <div class="commitment-area mx-auto max-w-lg relative">
+            <input type="checkbox" id="commitmentToggle" class="hidden">
+            <label for="commitmentToggle" class="commitment-button block bg-secondary-orange text-neutral-white hover:bg-secondary-orange px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1 cursor-pointer select-none">
+                Sí, me comprometo con el Reto
+            </label>
+
+            <div class="commitment-message bg-secondary-yellow-light text-primary-brown-earthy p-6 rounded-lg shadow-md mt-6 opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                <h3 class="text-2xl font-poppins font-bold mb-4">¡Bienvenida! ¡Bienvenido!</h3>
+                <p class="text-lg leading-relaxed">Consulta las <a href="instrucciones-reto.html" class="text-primary-green-dark underline hover:text-primary-green-medium">Instrucciones</a> para comenzar tu misión hoy mismo.</p>
+            </div>
+        </div>
+        </div>
+</section>
+
 
         <section class="contact-section bg-primary-green-dark text-neutral-white py-4"> <div class="container mx-auto px-8 relative z-10 flex flex-col justify-center items-center text-center gap-8 pt-8 pb-8">
                 <div class="flex flex-col md:flex-row md:justify-center md:items-start gap-8 md:gap-16 max-w-2xl w-full">
@@ -255,7 +315,7 @@
                     
                     <div class="flex flex-col items-center gap-4 text-center">
                         <h3 class="text-2xl font-poppins font-bold text-neutral-white mb-2">Recursos adicionales</h3>
-                        <a href="#" class="btn bg-secondary-orange text-neutral-white hover:bg-primary-brown-earthy px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1 block max-w-xs md:max-w-none w-full">Acceder a carpeta de recursos</a>
+                        <a href="#" class="btn bg-secondary-green-light text-neutral-white hover:bg-primary-green-medium px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-1 block max-w-xs md:max-w-none w-full">Carpeta de recursos</a>
                     </div>
                 </div>
 
